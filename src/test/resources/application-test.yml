@@ -8,7 +8,7 @@ spring:
     basename: i18n/error/message,i18n/error/description,i18n/error/solution
   flyway:
     locations: classpath:db/migration
-    default-schema: lxz-user-test # 不同微服务用自己的flyway schema防止冲突
+    table: flyway_schema_history_user # 不同微服务用自己的flyway表防止冲突
   datasource:
     url: jdbc:h2:D:/H2/db/lxz-test;MODE=Mysql;DB_CLOSE_DELAY=-1
     username: lxz
