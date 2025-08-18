@@ -19,6 +19,7 @@ spring:
   flyway:
     locations: classpath:db/migration
     table: flyway_schema_history_user # 不同微服务用自己的flyway表防止冲突
+    baseline-on-migrate: true # 不同模块公用的一个schema但是flyway table不同，所以需要开启这个配置，允许flyway在非空schema创建管理表
   datasource:
     url: jdbc:h2:D:/H2/db/lxz;MODE=Mysql;DB_CLOSE_DELAY=-1
     username: lxz
