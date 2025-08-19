@@ -19,6 +19,7 @@
     Session expired, please login again.
 </div>
 
+<!--这是spring security的默认登录接口，"post /login {username password}"，使用这个接口才会进到配置的CustomUserDetailsService去验证用户名密码-->
 <form th:action="@{/login}" method="post">
     <div>
         <label for="username">Username:</label>
