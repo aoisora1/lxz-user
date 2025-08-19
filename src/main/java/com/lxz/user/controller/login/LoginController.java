@@ -1,32 +1,33 @@
 package com.lxz.user.controller.login;
 
-import com.lxz.user.service.TestTableUserService;
-import com.lxz.user.vo.login.LoginDto;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/login")
-@Validated
 public class LoginController {
-    @Autowired
-    private TestTableUserService test;
 
-    @PostMapping("/login")
-    public void login(@RequestBody @Validated LoginDto loginDto) {
-        test.getById(1);
-        log.info(loginDto.getPassword());
-        System.out.println("xxxxxxxxxxx");
+    @GetMapping
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
     }
 
     @PostMapping("/logout")
     public void logout() {
 
+    }
+
+    @ResponseBody
+    @GetMapping("/test")
+    public String logout(HttpServletRequest request) {
+        return request.getSession().getId();
     }
 }
