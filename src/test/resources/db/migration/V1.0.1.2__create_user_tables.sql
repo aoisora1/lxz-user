@@ -22,4 +22,4 @@ create table user_role (
 );
 create index idx_user_role_id on user_role (user_id);
 
-insert into user(name, password, create_time, create_user, update_time, update_user) values ('admin', '677789cf3e0a0f09910038345a989fdc', sysdate, 'system', sysdate, 'system');
+insert into user(name, password, create_time, create_user, update_time, update_user) values ('admin', '677789cf3e0a0f09910038345a989fdc', now(), 'system', now(), 'system');

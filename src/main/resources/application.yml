@@ -12,6 +12,8 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开始sql打印
 
 spring:
+  application:
+    name: lxz-user
   profiles:
     active: @spring.profile@
   messages:
@@ -21,12 +23,19 @@ spring:
     table: flyway_schema_history_user # 不同微服务用自己的flyway表防止冲突
     baseline-on-migrate: true # 不同模块公用的一个schema但是flyway table不同，所以需要开启这个配置，允许flyway在非空schema创建管理表
   datasource:
-    url: jdbc:h2:D:/H2/db/lxz;MODE=Mysql;DB_CLOSE_DELAY=-1
-    username: lxz
-    password: 123456
-    driver-class-name: org.h2.Driver
-
-
-
-# TODO nacos
+    url: jdbc:mysql://localhost:3306/lxz
+    username: aoi
+    password: 131747hu
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        group: hjx
+        namespace: dev
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+  config:
+    import:
+      - nacos:user?group=dev
 
